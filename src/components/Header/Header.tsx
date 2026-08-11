@@ -16,9 +16,9 @@ export function Header({ isDark, toggleTheme, onRun, isRunning }: HeaderProps) {
 
   return (
     <>
-      <header className="relative flex items-center justify-between px-4 h-12 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] shrink-0">
+      <header className="relative flex items-center justify-between px-2 sm:px-4 h-12 md:h-14 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] shrink-0 overflow-x-auto no-scrollbar">
         {/* Left: Logo & Problem List */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <div className="flex items-center gap-2 text-[var(--lc-orange)] font-bold text-lg">
             <SquareTerminal className="w-6 h-6" />
           </div>

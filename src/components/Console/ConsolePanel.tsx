@@ -47,14 +47,30 @@ export function ConsolePanel({
       {/* Console Content */}
       <div className="flex-1 overflow-y-auto p-4 text-sm font-mono text-[var(--text-primary)]">
         {isLoading ? (
-          <div className="flex flex-col items-center justify-center h-full text-[var(--text-secondary)] gap-3">
-            <Loader2 className="w-6 h-6 animate-spin text-blue-500" />
-            <p className="font-sans">Evaluating...</p>
+          <div className="flex flex-col items-center justify-center h-full gap-4">
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              <div className="relative bg-[var(--bg-secondary)] border border-[var(--border-color)] p-3 rounded-2xl shadow-xl animate-bounce">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <h3 className="text-[var(--text-primary)] font-semibold text-base animate-pulse">Executing Testcases...</h3>
+              <p className="text-[var(--text-secondary)] text-xs">Waiting for Xyzon Backend</p>
+            </div>
+            {/* Animated Skeleton bars */}
+            <div className="w-64 mt-4 flex flex-col gap-2 opacity-50">
+              <div className="h-2 w-full bg-[var(--border-color)] rounded-full animate-pulse"></div>
+              <div className="h-2 w-3/4 bg-[var(--border-color)] rounded-full animate-pulse delay-75"></div>
+              <div className="h-2 w-5/6 bg-[var(--border-color)] rounded-full animate-pulse delay-150"></div>
+            </div>
           </div>
         ) : !response ? (
-          <div className="flex flex-col items-center justify-center h-full text-[var(--text-secondary)] font-sans">
-            <Terminal className="w-8 h-8 mb-3 opacity-20" />
-            <p>You must run your code first</p>
+          <div className="flex flex-col items-center justify-center h-full text-[var(--text-secondary)] font-sans gap-3">
+            <div className="bg-[var(--bg-secondary)] p-4 rounded-full border border-[var(--border-color)]">
+              <Terminal className="w-8 h-8 opacity-50" />
+            </div>
+            <p className="font-medium">Run your code to see results</p>
           </div>
         ) : response.status === 'COMPILE_ERROR' ? (
           <div className="flex flex-col gap-3">
