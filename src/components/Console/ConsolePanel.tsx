@@ -1,5 +1,11 @@
-import { Terminal, Loader2, Bug, CheckSquare, ChevronRight } from 'lucide-react';
+import { Terminal, Bug, CheckSquare, ChevronRight } from 'lucide-react';
+import { infinity } from 'ldrs';
 import type { MockApiResponse } from '../../utils/mockApi';
+
+// Register the web component
+if (typeof window !== 'undefined') {
+  infinity.register();
+}
 
 interface ConsolePanelProps {
   response: MockApiResponse | null;
@@ -48,21 +54,17 @@ export function ConsolePanel({
       <div className="flex-1 overflow-y-auto p-4 text-sm font-mono text-[var(--text-primary)]">
         {isLoading ? (
           <div className="flex flex-col items-center justify-center h-full gap-4">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
-              <div className="relative bg-[var(--bg-secondary)] border border-[var(--border-color)] p-3 rounded-2xl shadow-xl animate-bounce">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <h3 className="text-[var(--text-primary)] font-semibold text-base animate-pulse">Executing Testcases...</h3>
+            <l-infinity
+              size="55"
+              stroke="4"
+              stroke-length="0.15"
+              bg-opacity="0.1"
+              speed="1.3"
+              color="var(--text-primary)"
+            ></l-infinity>
+            <div className="flex flex-col items-center gap-1 mt-2">
+              <h3 className="text-[var(--text-primary)] font-medium text-base">Executing Testcases...</h3>
               <p className="text-[var(--text-secondary)] text-xs">Waiting for Xyzon Backend</p>
-            </div>
-            {/* Animated Skeleton bars */}
-            <div className="w-64 mt-4 flex flex-col gap-2 opacity-50">
-              <div className="h-2 w-full bg-[var(--border-color)] rounded-full animate-pulse"></div>
-              <div className="h-2 w-3/4 bg-[var(--border-color)] rounded-full animate-pulse delay-75"></div>
-              <div className="h-2 w-5/6 bg-[var(--border-color)] rounded-full animate-pulse delay-150"></div>
             </div>
           </div>
         ) : !response ? (
