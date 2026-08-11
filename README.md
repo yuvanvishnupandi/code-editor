@@ -1,6 +1,6 @@
-# Xyzon Innovations Code Editor Clone
+# Code Editor
 
-This is a frontend clone of a premium coding environment, built for the Xyzon Innovations technical evaluation.
+This is a frontend of premium coding environment
 
 ## Getting Started
 
