@@ -1,10 +1,10 @@
 import { Terminal, Bug, CheckSquare, ChevronRight } from 'lucide-react';
-import { infinity } from 'ldrs';
+import { bouncy } from 'ldrs';
 import type { MockApiResponse } from '../../utils/mockApi';
 
 // Register the web component
 if (typeof window !== 'undefined') {
-  infinity.register();
+  bouncy.register();
 }
 
 interface ConsolePanelProps {
@@ -54,14 +54,11 @@ export function ConsolePanel({
       <div className="flex-1 overflow-y-auto p-4 text-sm font-mono text-[var(--text-primary)]">
         {isLoading ? (
           <div className="flex flex-col items-center justify-center h-full gap-4">
-            <l-infinity
-              size="55"
-              stroke="4"
-              stroke-length="0.15"
-              bg-opacity="0.1"
-              speed="1.3"
+            <l-bouncy
+              size="45"
+              speed="1.75"
               color="var(--text-primary)"
-            ></l-infinity>
+            ></l-bouncy>
             <div className="flex flex-col items-center gap-1 mt-2">
               <h3 className="text-[var(--text-primary)] font-medium text-base">Executing Testcases...</h3>
               <p className="text-[var(--text-secondary)] text-xs">Waiting for Xyzon Backend</p>
