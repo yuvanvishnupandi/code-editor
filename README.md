@@ -1,12 +1,39 @@
 # Code Editor
 
-This is a frontend of premium coding environment
+A frontend code editor interface built with TypeScript and Vite, featuring a split-pane layout, editor themes, and a responsive UI.
 
-## Getting Started
+## Features
 
-1. Run `npm install` to install dependencies.
-2. Run `npm run dev` to start the development server.
+- Split-pane code editor
+- Multiple editor themes
+- Responsive interface
+- Test case and output views
+- Loading and execution states
 
-## Note on Backend
+## Tech Stack
 
-This application uses a mock backend (`src/utils/mockApi.ts`) to simulate execution delays and return mock test case results, allowing it to function fully without the Java microservice.
+- TypeScript
+- Vite
+- CSS
+- HTML
+
+## Development
+
+Clone the repository:
+
+    git clone https://github.com/yuvanvishnupandi/code_editor.git
+    cd code_editor
+
+Install dependencies:
+
+    npm install
+
+Start the development server:
+
+    npm run dev
+
+
+
+## Note
+
+This is a frontend implementation. Code execution and test case results are currently simulated using a mock API.
